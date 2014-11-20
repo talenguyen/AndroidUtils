@@ -8,14 +8,17 @@ buildscript {
     }
 }
 
+version = VERSION_NAME
+group = GROUP
+archivesBaseName = PROJECT_NAME
+
 apply plugin: 'java'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-idea'
-//apply from: file('../deploy.gradle')
-apply from: file('../install.gradle')
+apply from: file('../deploy.gradle')
 
-targetCompatibility = '1.6'
-sourceCompatibility = '1.6'
+targetCompatibility = JavaVersion.VERSION_1_6
+sourceCompatibility = JavaVersion.VERSION_1_6
 
 dependencies {
     repositories {
