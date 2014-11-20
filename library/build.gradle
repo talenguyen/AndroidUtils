@@ -11,7 +11,8 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-idea'
-apply from: file('../deploy.gradle')
+//apply from: file('../deploy.gradle')
+apply from: file('../install.gradle')
 
 targetCompatibility = '1.6'
 sourceCompatibility = '1.6'

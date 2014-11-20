@@ -1,0 +1,39 @@
+version = VERSION_NAME
+
+apply plugin: 'maven'
+
+configure(install.repositories.mavenInstaller) {
+    pom.project {
+        groupId GROUP
+        artifactId PROJECT_NAME
+        inceptionYear '2014'
+        packaging 'jar'
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
