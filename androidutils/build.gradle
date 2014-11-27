@@ -10,7 +10,6 @@ buildscript {
 
 version = VERSION_NAME
 group = GROUP
-archivesBaseName = PROJECT_NAME
 
 apply plugin: 'java'
 apply plugin: 'propdeps'
