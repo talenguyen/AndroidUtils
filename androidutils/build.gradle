@@ -10,7 +10,6 @@ buildscript {
 
 version = VERSION_NAME
 group = GROUP
-archivesBaseName = PROJECT_NAME
 
 apply plugin: 'java'
 apply plugin: 'propdeps'
@@ -30,4 +29,7 @@ dependencies {
     testCompile 'com.google.android:android:4.1.1.4'
     provided 'com.google.android:android:4.1.1.4'
     provided 'com.google.android:support-v4:r7'
+    provided fileTree(dir: 'libs', include: 'android-support*.jar')
+
+
 }
