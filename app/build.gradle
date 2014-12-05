@@ -25,5 +25,6 @@ dependencies {
     }
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.0'
+    compile project(':androidutils')
 //    compile 'com.github.talenguyen:AndroidUtils:1.0.0-SNAPSHOT'
 }
