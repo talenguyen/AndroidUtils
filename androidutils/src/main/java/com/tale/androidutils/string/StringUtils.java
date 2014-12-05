@@ -47,6 +47,9 @@ public abstract class StringUtils {
      */
     public static String truncateIfLengthMoreThan(final int maximumLengthAllowed, String string) {
         if (string.length() > maximumLengthAllowed) {
+            if (maximumLengthAllowed <= THREE_DOTS.length()) {
+                return THREE_DOTS;
+            }
             return string.substring(0, maximumLengthAllowed - THREE_DOTS.length()).concat(THREE_DOTS);
         } else {
             return string;
