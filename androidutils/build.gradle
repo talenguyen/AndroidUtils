@@ -12,12 +12,24 @@ version = VERSION_NAME
 group = GROUP
 
 apply plugin: 'java'
-apply plugin: 'propdeps'
-apply plugin: 'propdeps-idea'
 apply from: file('../deploy.gradle')
 
 targetCompatibility = JavaVersion.VERSION_1_6
 sourceCompatibility = JavaVersion.VERSION_1_6
+
+configurations {
+    provided
+}
+
+//Include provided for compilation
+sourceSets.main.compileClasspath += configurations.provided
+
+// optional: if using 'idea' plugin
+//idea {
+//    module{
+//        scopes.PROVIDED.plus += configurations.provided
+//    }
+//}
 
 dependencies {
     repositories {
@@ -26,7 +38,6 @@ dependencies {
     testCompile 'junit:junit:4.10'
     testCompile 'org.assertj:assertj-core:1.6.1'
     testCompile 'org.mockito:mockito-all:1.9.5'
-    testCompile 'com.google.android:android:4.1.1.4'
     provided 'com.google.android:android:4.1.1.4'
     provided 'com.google.android:support-v4:r7'
     provided files('libs/android-support-v7-recyclerview.jar')
